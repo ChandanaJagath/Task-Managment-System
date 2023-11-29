@@ -21,5 +21,6 @@ Route::get('/', function () {
 route::get('/tasks',[TaskController::class,'index'])->name('tasks.index');
 route::get('/tasks/create',[TaskController::class,'create'])->name('tasks.create');
 route::post('/tasks',[TaskController::class,'store'])->name('tasks.store');
-
+route::get('/tasks/{task}',[TaskController::class,'edit'])->name('tasks.edit');
+route::put('/tasks/{task}',[TaskController::class,'update'])->name('tasks.update');
 
