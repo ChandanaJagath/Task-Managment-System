@@ -64,5 +64,11 @@ class taskcontroller extends Controller
         
         return redirect()->route ('tasks.index')->with ('success', 'Task update Successfully');
     }
+
+    public function destroy(Task $task)
+    {
+            $task->delete();
+            return redirect()->route ('tasks.index')->with ('success', 'Task delete Successfully');
+    }
 }
 
