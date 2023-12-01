@@ -24,7 +24,7 @@
 
     <div class="container">
     <a href="{{ route('tasks.create') }}" class="btn btn-primary mb-3">Create Task</a>
-    
+    <a href="{{ route('taskshow') }}" class="btn btn-secondary mb-3">Show Completed Tasks</a>
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>

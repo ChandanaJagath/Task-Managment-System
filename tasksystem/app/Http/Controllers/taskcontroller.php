@@ -70,5 +70,12 @@ class taskcontroller extends Controller
             $task->delete();
             return redirect()->route ('tasks.index')->with ('success', 'Task delete Successfully');
     }
+
+    public function showCompleted( )
+    {
+        $completedTasks = Task::where('completed',true)->orderBy('completed_at','desc')->get();
+        return viwe('taskshow',compact('comletedTasks'));
+    
+   }
 }
 
