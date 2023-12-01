@@ -25,6 +25,7 @@
     <div class="container">
     <a href="{{ route('tasks.create') }}" class="btn btn-primary mb-3">Create Task</a>
     
+    
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -46,6 +47,7 @@
                         <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-primary btn-sm">
                             <i class="fa fa-edit"></i> Edit
                         </a>
+                        
 
                         <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display: inline;">
                             @csrf
@@ -55,6 +57,15 @@
                                 <i class="fa fa-trash"></i> Delete
                             </button>
                         </form>
+
+                        @if (!$task->completed)
+                        <form action="{{ route('tasks.complete', $task->id) }}" method="POST" style="display: inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-warning btn-sm">
+                                <i class="fa fa-check"></i> Complete
+                            </button>
+                        </form>
+                        @endif
 
                     </td>
 
