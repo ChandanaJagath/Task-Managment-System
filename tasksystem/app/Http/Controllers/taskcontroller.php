@@ -74,8 +74,8 @@ class taskcontroller extends Controller
     public function showCompleted( )
     {
         $completedTasks = Task::where('completed',true)->orderBy('completed_at','desc')->get();
-        return viwe('taskshow',compact('comletedTasks'));
+        return viwe('taskshow',compact('completedTasks'));
     
-   }
+    }
 }
 
