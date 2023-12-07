@@ -74,11 +74,19 @@ class taskcontroller extends Controller
     public function complete(Task $task)
     {
             $task->update([
-                'complete' =>true,
-                'complete_at' => now(),
+                'completed' =>true,
+                'completed_at' => now(),
 
             ]);
             return redirect()->route ('tasks.index')->with ('success', 'Task complete Successfully');
     }
+    public function showCompleted( )
+    {
+        $completedTasks = Task::where('completed',true)->orderBy('completed_at','desc')->get();
+
+        return view('taskshow',compact('completedTasks'));
+    
+    }
+
 }
 
